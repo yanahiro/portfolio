@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yanahiroのポートフォリオ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawsome/css/all.min.css">
+    <link rel="stylesheet" href="js/aos/aos.css">
+  </head>
+  <body class="fadeout">
+    <header>
+      <a href="./"><span class="logo-sp"></span></a>
+      <div class="sp-menu-btn">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <nav class="globalnav">
+        <div class="gn-content">
+          <ul class="gn-list">
+            <li class="gn-item gn-logo">
+              <a class="gn-link no-barba" href="./"><i class="ico-gn-logo"></i></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link about" href="./about.html"><span class="gn-link-text">About</span></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link work" href="./work.html"><span class="gn-link-text">Work</span></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link blog" href="#" onclick="alert('只今準備中');return false;"><span class="gn-link-text">Blog</span></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link contact" href="#" onclick="alert('後ほど開発');return false;"><span class="gn-link-text">Contact</span></a>
+            </li>
+            <li class="gn-item gn-sns">
+              <a class="gn-link sns" href="https://www.facebook.com/hiroki.yanagisawa.10"><i class="fab fa-facebook"></i></a>
+              <a class="gn-link sns" href="https://www.instagram.com/yanatch1982/"><i class="fab fa-instagram"></i></a>
+              <a class="gn-link sns" href="https://twitter.com/yanahiro1982"><i class="fab fa-twitter-square"></i></a>
+              <a class="gn-link sns" href="https://github.com/yanahiro/"><i class="fab fa-github-square"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <canvas class="canvasbase" id="canvasbase"></canvas>
+    <canvas class="streamline" id="streamline"></canvas>
+    <div id="barba-wrapper">
+      <div class="barba-container">
+        <section class="hero is-80vh">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title work">Work</h1>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container is-fullwidth">
+            <div class="work-area">
+              <div class="work-description">
+                <p><span class="comment-title">【参画工程】</span><span class="spbr" />要件定義=RD、外部設計=ED、内部設計=ID、プログラム開発=PT、<span class="spbr" />結合テスト=IT、システムテスト=ST、運用=OP</p>
+                <p><span class="comment-title">【作業区分】</span><span class="spbr" />プロジェクト管理=PM、プロジェクトリーダー=PL、<span class="spbr" />設計=SE、プログラマー=PG</p>
+              </div>
+              <div class="work-list">
+                <table class="mb90">
+                  <thead>
+                    <th>No.</th>
+                    <th>業種</th>
+                    <th>プロジェクト</th>
+                    <th>役割</th>
+                    <th>OS</th>
+                    <th>DB</th>
+                    <th>言語 / FW</th>
+                    <th>開始</th>
+                    <th>終了</th>
+                    <th>参画工程</th>
+                    <th>規模</th>
+                  </thead>
+                  <tbody>
+                    <tr class="work-item" tr-row="1">
+                      <td label="No.">1.</td>
+                      <td label="業種">サービス</td>
+                      <td label="プロジェクト"><a class="link" href="./work_detail.html">評価ランキングサービス</a></td>
+                      <td class="role-cell" label="役割">
+                        <span class="role pm"></span><span class="role pl"></span>
+                        <span class="role se"></span>
+                        <span class="role pg"></span>
+                      </td>
+                      <td class="os-cell" label="OS">
+                        <span class="os aws">aws</span>
+                      </td>
+                      <td class="db-cell" label="DB">
+                        <span class="db aws-aurora">Aurora</span>
+                      </td>
+                      <td class="pg-cell" label="言語 / FW">
+                        <p class="pg-item"><span class="pg php">PHP7.1</span></p>
+                        <p class="pg-item"><span class="pg js">Javascript</span></p>
+                        <p class="pg-item"><span class="pg ts">typescript</span></p>
+                      </td>
+                      <td label="開始">2017/02</td>
+                      <td label="終了">2018/05</td>
+                      <td label="参画工程">RD〜OP</td>
+                      <td label="規模">54</td>
+                    </tr>
+                    <!-- ここに列を追加 -->
+                  </tbody>
+                </table>
+                <div class="work-description">
+                  <p>※現在更新中。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer class="footer"></footer>
+
+    <script src="js/noisejs/perlin.js"></script>
+    <script src="js/three.js/three.js"></script>
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/ics-creative/ParticleJS/release/1.0.0/libs/particlejs.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/anime.js/anime.min.js" type="text/javascript"></script>
+    <script src="js/barba.js/barba.min.js" type="text/javascript"></script>
+    <script src="js/aos/aos.js"></script>
+    <script src="js/app.min.js" type="text/javascript"></script>
+  </body>
+</html>

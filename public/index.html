@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yanahiroのポートフォリオ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawsome/css/all.min.css">
+  </head>
+  <body>
+    <div id="mo-container" class="load-bg"></div>
+    <div class="load-bg"></div>
+    <div id="container" class="bg-container"></div>
+    <div class="logo-name">
+      <a href="./about.html" class="logo-title"></a>
+    </div>
+    <div class="button-area-top">
+      <a class="button" href="./about.html">click</a>
+    </div>
+
+    <script id="vertexShader" type="x-shader/x-vertex">
+      precision highp float;
+      uniform float sineTime;
+      uniform mat4 modelViewMatrix;
+      uniform mat4 projectionMatrix;
+      attribute vec3 position;
+      attribute vec3 offset;
+      attribute vec4 color;
+      attribute vec4 orientationStart;
+      attribute vec4 orientationEnd;
+      varying vec3 vPosition;
+      varying vec4 vColor;
+      void main(){
+        vPosition = offset * max( abs( sineTime * 2.0 + 1.0 ), 0.5 ) + position;
+        vec4 orientation = normalize( mix( orientationStart, orientationEnd, sineTime ) );
+        vec3 vcV = cross( orientation.xyz, vPosition );
+        vPosition = vcV * ( 2.0 * orientation.w ) + ( cross( orientation.xyz, vcV ) * 2.0 + vPosition );
+        vColor = color;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( vPosition, 1.0 );
+      }
+    </script>
+
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      precision highp float;
+      uniform float time;
+      varying vec3 vPosition;
+      varying vec4 vColor;
+      void main() {
+        vec4 color = vec4( vColor );
+        color.r += sin( vPosition.x * 10.0 + time ) * 0.5;
+        gl_FragColor = color;
+      }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/dat.gui/dat.gui.js"></script>
+    <script src="js/three.js/three.js"></script>
+    <script src="js/stats.js/stats.js"></script>
+
+    <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+    <script src="//cdn.jsdelivr.net/mojs-player/latest/mojs-player.min.js"></script>
+    <!-- <script src="js/index.min.js"></script> -->
+    <script>
+      var width = window.innerWidth;
+      var script = document.createElement('script');
+      if (width >= 768) {
+        script.src = ['js/index.min.js'];
+      } else {
+        script.src = ['js/indexsp.min.js'];
+      }
+      document.body.appendChild(script);
+    </script>
+
+  </body>
+</html>
