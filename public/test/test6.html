@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yanahiroのポートフォリオ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawsome/css/all.min.css">
+    
+    <!-- <script src="js/anime.js/anime.min.js" type="text/javascript"></script> -->
+    
+  </head>
+  <body>
+    <canvas width="1200" height="800" id="myCanvas"></canvas>
+ 
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/ics-creative/ParticleJS/release/1.0.0/libs/particlejs.min.js"></script>
+    <script>
+      // Stageオブジェクトを作成します。表示リストのルートになります。
+      stage = new createjs.Stage("myCanvas");
+
+      // パーティクルシステム作成します。
+      particleSystem = new particlejs.ParticleSystem();
+
+      // パーティクルシステムの描画コンテナーを表示リストに登録します。
+      stage.addChild(particleSystem.container);
+
+      // Particle Developから保存したパラメーターを反映します。
+      particleSystem.importFromJson(
+        {
+          "bgColor": "#00000",
+          "width": 1024,
+          "height": 575,
+          "emitFrequency": 16,
+          "startX": 442,
+          "startXVariance": 1024,
+          "startY": 255,
+          "startYVariance": 1024,
+          "initialDirection": "0",
+          "initialDirectionVariance": "360",
+          "initialSpeed": 1,
+          "initialSpeedVariance": "3.7",
+          "friction": 0.11,
+          "accelerationSpeed": 0.1,
+          "accelerationDirection": "273.3",
+          "startScale": "0.76",
+          "startScaleVariance": "1",
+          "finishScale": 0.09,
+          "finishScaleVariance": 0.14,
+          "lifeSpan": 200,
+          "lifeSpanVariance": 200,
+          "startAlpha": 0.3,
+          "startAlphaVariance": 0.47,
+          "finishAlpha": 0.15,
+          "finishAlphaVariance": 0.5,
+          "shapeIdList": [
+              "blur_circle",
+              "circle"
+          ],
+          "startColor": {
+              "hue": 125,
+              "hueVariance": 209,
+              "saturation": 79,
+              "saturationVariance": 5,
+              "luminance": 85,
+              "luminanceVariance": 48
+          },
+          "blendMode": true,
+          "alphaCurveType": "1",
+          "VERSION": "1.0.0"
+        }
+      );
+
+      // フレームレートの設定
+      createjs.Ticker.framerate = 60;
+      // 定期的に呼ばれる関数を登録
+      createjs.Ticker.on("tick", handleTick);
+
+      function handleTick() {
+        // パーティクルの発生・更新
+        particleSystem.update();
+       
+        // 描画を更新する
+        stage.update();
+      }
+    </script>
+
+    <script src="js/dat.gui/dat.gui.js"></script>
+    <script src="js/three.js/three.js"></script>
+    <script src="js/stats.js/stats.js"></script>
+    <script src="js/index.min.js"></script>
+    <script type="text/javascript">
+      // var el = document.querySelector('.logo-name .a-ln10');
+      // el.addEventListener('animationend', function() {
+      //     // animation終了時の処理
+      //     // alert('animationend');
+      //     var bg = document.querySelector('.load-bg');
+      //     bg.classList.add('load-end')
+      //     var logo = document.querySelector('.logo-name');
+      //     logo.classList.add('load-end')
+      //     var bat = document.querySelector('.button-area-top');
+      //     bat.classList.add('load-end')
+
+      //     // start();
+      // });
+
+      // window.addEventListener('load', function() {
+      //   var b = document.querySelector('body');
+      //   b.classList.remove('fadeout');
+      // });
+
+      // window.addEventListener('DOMContentLoaded', function(event) {
+      //   // ハッシュリンク(#)と別ウィンドウでページを開く場合はスルー
+      //   var link = document.querySelectorAll('a:not([href^="#"]):not([target])');
+      //   Array.prototype.forEach.call(link, function(elem) {
+      //     elem.addEventListener('click', function(event) {
+      //       event.preventDefault(); // ナビゲートをキャンセル
+      //       var url = elem.getAttribute('href');
+      //       if (url !== '') {
+      //         // alert(123);
+      //         var b = document.querySelector('body');
+      //         b.classList.add('fadeout');
+      //         setTimeout(function() {
+      //           window.location = url;
+      //         }, 8000);
+      //       }
+      //       return false;
+      //     });
+      //   });
+      // });
+
+      // TopAnimation();
+
+      // $(window).on('load', function(){
+      //   $('body').removeClass('fadeout');
+      // });
+              
+      // $(function() {
+      //   // ハッシュリンク(#)と別ウィンドウでページを開く場合はスルー
+      //   $('a:not([href^="#"]):not([target])').on('click', function(e){
+      //     e.preventDefault(); // ナビゲートをキャンセル
+      //     url = $(this).attr('href'); // 遷移先のURLを取得
+      //     if (url !== '') {
+      //       $('body').addClass('fadeout');  // bodyに class="fadeout"を挿入
+      //       setTimeout(function(){
+      //         window.location = url;  // 0.8秒後に取得したURLに遷移
+      //       }, 1500);
+      //     }
+      //     return false;
+      //   });
+      // });
+    </script>
+  </body>
+</html>

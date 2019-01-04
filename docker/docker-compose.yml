@@ -1,0 +1,23 @@
+version : '2'
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    links:
+      - php
+    volumes:
+      - ./../public:/var/www/html
+      - ./nginx/server.conf:/etc/nginx/nginx.conf
+
+  php:
+    build: ./php
+    volumes:
+      - ./../public:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+
+  smtp:
+      image: schickling/mailcatcher
+      ports:
+        - "1090:1080"
+        - "1025:1025"

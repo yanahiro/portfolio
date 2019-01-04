@@ -1,0 +1,265 @@
+/**
+ * work内で使用する細々したStyle設定
+ */
+
+.role-cell {
+  font-size: 0;
+  span {
+    &.role {
+      &::before {
+        content: "";
+        background-color: #333;
+        color: #fff;
+        display: inline-block;
+        padding: 4px 8px;
+        font-size: 0.7rem;
+        font-style: normal;
+        margin: 4px;
+      }
+
+      &.pm {
+        &::before {
+          content: "PM";
+        }
+      }
+      &.pl {
+        &::before {
+          content: "PL";
+        }
+      }
+      &.se {
+        &::before {
+          content: "SE";
+        }
+      }
+      &.pg {
+        &::before {
+          content: "PG";
+        }
+      }
+    }
+  }
+}
+
+.os-cell {
+  text-align: center;
+  font-size: .5rem;
+  padding: 0 .75rem;
+
+  .os-item {
+    display: inline-block;
+    text-align: center;
+  }
+  span {
+    &.os {
+      &::before {
+        background-repeat: no-repeat !important;
+        background-size:contain !important;
+        content: '';
+        display: block;
+        vertical-align: middle;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        margin: 0.25rem auto;
+      }
+    }
+    &.aix {
+      &:before {
+        background: url('../images/os/aix.png');
+      }
+    }
+    &.cent-os {
+      &:before {
+        background: url('../images/os/centOS.png');
+      }
+    }
+    &.aws {
+      &:before {
+        background: url('../images/os/aws.png');
+      }
+    }
+    &.windows {
+      &:before {
+        background: url('../images/os/windows.png');
+      }
+    }
+  }  
+}
+
+
+.db-cell {
+  text-align: center;
+  font-size: .5rem;
+  padding: 0 .75rem;
+
+  .db-item {
+    display: inline-block;
+    text-align: center;
+  }
+  span {
+    &.db {
+      &::before {
+        background-repeat: no-repeat !important;
+        background-size:contain !important;
+        content: '';
+        display: block;
+        vertical-align: middle;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        margin: 0.25rem auto;
+      }
+    }
+
+    &.aws-aurora {
+      &:before {
+        background: url('../images/db/aws-aurora.png');
+      }
+    }
+    &.mysql {
+      &:before {
+        background: url('../images/db/mysql.png');
+      }
+    }
+    &.db2 {
+      &:before {
+        background: url('../images/db/db2.png');
+      }
+    }
+    &.sql-server {
+      &:before {
+        background: url('../images/db/SQLServer.png');
+      }
+    }
+    &.database {
+      &:before {
+        background: url('../images/os/database.png');
+      }
+    }
+  }  
+}
+
+.pg-cell {
+  text-align: center;
+  font-size: .5rem;
+  padding: 0 .75rem;
+
+  .pg-item {
+    display: inline-block;
+    text-align: center;
+  }
+  span {
+    &.pg {
+      &::before {
+        background-repeat: no-repeat !important;
+        background-size:contain !important;
+        content: '';
+        display: block;
+        vertical-align: middle;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        margin: 0.25rem auto;
+      }
+    }
+
+    &.net {
+      &:before {
+        background: url('../images/pg/.Net.png');
+      }
+    }
+    &.c-plusplus {
+      &:before {
+        background: url('../images/pg/C++.png');
+      }
+    }
+    &.csharp {
+      &:before {
+        background: url('../images/pg/csharp.png');
+      }
+    }
+    &.css3 {
+      &:before {
+        background: url('../images/pg/css3.png');
+      }
+    }
+    &.go {
+      &:before {
+        background: url('../images/pg/go.png');
+      }
+    }
+    &.html-five {
+      &:before {
+        background: url('../images/pg/html5.png');
+      }
+    }
+    &.java {
+      &:before {
+        background: url('../images/pg/Java.png');
+      }
+    }
+    &.js {
+      &:before {
+        background: url('../images/pg/js.png');
+      }
+    }
+    &.php {
+      &:before {
+        background: url('../images/pg/PHP.png');
+      }
+    }
+    &.python {
+      &:before {
+        background: url('../images/pg/python.png');
+      }
+    }
+    &.ruby {
+      &:before {
+        background: url('../images/pg/ruby.png');
+      }
+    }
+    &.swift {
+      &:before {
+        background: url('../images/pg/swift.png');
+      }
+    }
+    &.ts {
+      &:before {
+        background: url('../images/pg/typescript.png');
+      }
+    }
+    &.vb {
+      &:before {
+        background: url('../images/pg/VB.png');
+      }
+    }
+  }  
+}
+
+.work-detail-area {
+  .detail-table {
+    .os-cell, .db-cell, .pg-cell {
+      font-size: .8rem;
+      .os-item, .db-item, .pg-item {
+        display: block;
+        text-align: left;
+        margin-top: 0;
+        margin-bottom: 1rem;
+
+        span {
+          &.os, &.db, &.pg {
+            &::before {
+              display: inline-block;
+              width: 2.5rem;
+              height: 2.5rem;
+              line-height: 2.5rem;
+              padding-right: 1rem;
+              margin: 0 auto;
+            }      
+          }
+        }
+      }
+    }
+  }
+}

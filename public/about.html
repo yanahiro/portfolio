@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yanahiroのポートフォリオ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawsome/css/all.min.css">
+    <link rel="stylesheet" href="js/aos/aos.css">
+  </head>
+  <body class="fadeout">
+    <header>
+      <a href="./"><span class="logo-sp"></span></a>
+      <div class="sp-menu-btn">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <nav class="globalnav">
+        <div class="gn-content">
+          <ul class="gn-list">
+            <li class="gn-item gn-logo">
+              <a class="gn-link no-barba" href="./"><i class="ico-gn-logo"></i></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link about" href="./about.html"><span class="gn-link-text">About</span></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link work" href="./work.html"><span class="gn-link-text">Work</span></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link blog" href="#" onclick="alert('只今準備中');return false;"><span class="gn-link-text">Blog</span></a>
+            </li>
+            <li class="gn-item">
+              <a class="gn-link contact" href="#" onclick="alert('後ほど開発');return false;"><span class="gn-link-text">Contact</span></a>
+            </li>
+            <li class="gn-item gn-sns">
+              <a class="gn-link sns" href="https://www.facebook.com/hiroki.yanagisawa.10"><i class="fab fa-facebook"></i></a>
+              <a class="gn-link sns" href="https://www.instagram.com/yanatch1982/"><i class="fab fa-instagram"></i></a>
+              <a class="gn-link sns" href="https://twitter.com/yanahiro1982"><i class="fab fa-twitter-square"></i></a>
+              <a class="gn-link sns" href="https://github.com/yanahiro/"><i class="fab fa-github-square"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <canvas class="canvasbase" id="canvasbase"></canvas>
+    <canvas class="streamline" id="streamline"></canvas>
+    <div id="barba-wrapper">
+      <div class="barba-container">
+        <section class="hero is-80vh">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title about">About</h1>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="profile-area">
+              <div class="pf-image" data-aos="fade-up">
+                <img src="./images/me.jpg" />
+              </div>
+              <div class="pf-content">
+                <div class="pf-info" data-aos="fade-up">
+                  <p class="name">Hiroki Yanagisawa</p>
+                  <p class="subname">柳澤 宏樹</p>
+                  <p class="position">System Developer</p>
+                  <div class="sns">
+                    <a href="https://www.facebook.com/hiroki.yanagisawa.10"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/yanatch1982/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/yanahiro1982"><i class="fab fa-twitter-square"></i></a>
+                    <a href="https://github.com/yanahiro/"><i class="fab fa-github-square"></i></a>
+                  </div>
+                </div>
+                <div class="pf-description" data-aos="fade-up">
+                  <p>
+                    1982年 大阪府大阪市生まれ。<br>
+                    大学卒業後、大阪市内のシステム開発会社に就職。<br>
+                    2012年01月、システム開発会社を退職し、<span class="spbr" />フリーランスのエンジニアとして活動を開始。<br>
+                    フリーランスエンジニアとしても主な仕事は<span class="spbr" />システム開発会社の案件で、<br>
+                    見積もりからプロジェクト管理、<span class="spbr" />要件定義、設計、開発、テストなど<br>
+                    規模、予算に応じて様々なポジションを担当。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section-bk-gray">
+          <div class="container">
+            <h2 class="section-title strong-point">Strong Point</h2>
+            <div class="strong-point-area">
+              <ul class="sp-list">
+                <li class="sp-list-item" data-aos="fade-up">
+                  <div class="item-block">
+                    <p class="sp-jp">マネージメント</p>
+                    <p class="sp-us management">management</p>
+                    <div class="sp-icon">
+                      <img src="./images/ico-management.png" />
+                    </div>
+                    <p class="sp-description">
+                      プロジェクトの責任者としてプロジェクト計画を立案し、スケジュール作成、進捗の管理、課題の整理・対策などをおこない、計画した予算、納期、品質を達成するために運営・管理する事ができます。
+                    </p>
+                  </div>
+                </li>
+                <li class="sp-list-item" data-aos="fade-up" data-aos-delay="600">
+                  <div class="item-block">
+                    <p class="sp-jp">システム設計</p>
+                    <p class="sp-us systemdesign">system design</p>
+                    <div class="sp-icon">
+                      <img src="./images/ico-systemdesign.png" />
+                    </div>
+                    <p class="sp-description">
+                      ユーザーが抱える現状の課題や、潜在的なニーズをヒアリングし、シスム構築のための要件定義を作成したり、作成された要件定義から、基本設計、詳細設計、テスト仕様書など、さまざまなフェーズの設計作業が可能です。
+                    </p>
+                  </div>
+                </li>
+                <li class="sp-list-item" data-aos="fade-up" data-aos-delay="800">
+                  <div class="item-block">
+                    <p class="sp-jp">プログラミング</p>
+                    <p class="sp-us program">program</p>
+                    <div class="sp-icon">
+                      <img src="./images/ico-program.png" />
+                    </div>
+                    <p class="sp-description">
+                      業務や導入後の運用を想定し、システムを実現するためのアプリケーションの処理方式の設計や、処理方式を実現するためのフレームワークのコーディングなどを経験し、業務機能の開発はもちろん、開発するための基盤部分の開発も可能です。
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <div class="button-area"><a class="button" href="./work.html">開発実績一覧へ</a></div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="skill-area">
+              <div class="skill-item" data-aos="flip-left" data-aos-duration="2000">
+                <p class="sk-item-title">得意言語</p>
+                <p class="sk-item-title-us gp">
+                  <img src="./images/goodprograming.png" alt="good programing" />
+                </p>
+                <dl class="sk-level-list">
+                  <dt>PHP(Laravel)</dt>
+                  <dd class="wrap"><span class="rate rate4-5"></dd>                
+                  <dt>Java</dt>
+                  <dd class="wrap"><span class="rate rate4"></dd>                
+                  <dt>C#.Net</dt>
+                  <dd class="wrap"><span class="rate rate4"></dd>                
+                  <dt>VB.Net</dt>
+                  <dd class="wrap"><span class="rate rate3-5"></dd>                
+                  <dt>HTML5 / CSS3</dt>
+                  <dd class="wrap"><span class="rate rate3"></dd>                
+                  <dt>Javascript</dt>
+                  <dd class="wrap"><span class="rate rate2-5"></dd>                
+                </dl>
+              </div>
+              <div class="skill-item" data-aos="flip-right" data-aos-duration="2000">
+                <p class="sk-item-title">スキルキーワード</p>
+                <p class="sk-item-title-us sk">
+                  <img src="./images/skillkeyword.png" alt="skill keyword" />
+                </p>
+                <p class="sk-keyword">
+                  PHP / Java / C#.Net / Visual Basic.Net / Asp.Net / JavaScript / TypeScript / Ruby / COBOL / VisualBasic / VBA / Objective-C / iOS / Android / Oracle / DB2 / SQLServer / Access / MySQL / PostgreSQL / Windows / Linux / AIX / Solaris / Laravel / Struts / Struts2 / Spring / Seasar / Ruby on Rails / jQuery / Node.js / Angular4
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" data-aos="fade-up">
+          <div class="container">
+            <h2 class="section-title future-design"">Future Design</h2>
+            <div class="future-design-area">
+              <p>
+                私の目標は、大阪にコミュニティを作ること。
+              </p>
+              <p>
+                これまで私は、たくさんの人に支えられて成長してきました。<br />
+                そんな中で思ったことは「人の出会いが、成長につながる」ということ。<br />
+                そこに集まる方たちが、楽しく過ごせる場所やイベントを提供・発信し、<br />
+                コミュニティの中から、地域貢献出来るようなサービスや活動に取り組む。<br />
+                大阪好きが大阪を盛り上げていくようなWebにとらわれないコミュニティを作ることが目標です。<br />
+              </p>
+              <p>
+                たくさんの人に支えられてきたからこそ、これからは支える側にもなれる人でありたい。<br />
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer class="footer"></footer>
+
+    <script src="js/noisejs/perlin.js"></script>
+    <script src="js/three.js/three.js"></script>
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://cdn.rawgit.com/ics-creative/ParticleJS/release/1.0.0/libs/particlejs.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/anime.js/anime.min.js" type="text/javascript"></script>
+    <script src="js/barba.js/barba.min.js" type="text/javascript"></script>
+    <script src="js/aos/aos.js"></script>
+    <script src="js/app.min.js" type="text/javascript"></script>
+  </body>
+</html>

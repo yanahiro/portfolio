@@ -1,0 +1,64 @@
+/**
+ *
+ * 調整用CSS
+ *
+ * @author  yanahiro
+ * @version 1.0
+ *
+**/
+
+
+/*
+ * padding上下用CSS(5px毎に作成)
+ */
+@for $i from 0 through 20 {
+  $y:$i*5;
+  .mb#{$y} {
+    margin-bottom: #{$y}px !important;
+  }
+  .pt#{$y} {
+    padding-top: #{$y}px !important;
+  }
+}
+
+/*
+ * margin右用CSS(5px毎に作成)
+ */
+@for $i from 0 through 20 {
+  $y:$i*5;
+  .mr#{$y} {
+    margin-right: #{$y}px !important;
+  }
+}
+
+/*
+ * 幅指定CSS(5%単位で作成)
+ */
+@for $i from 0 through 20 {
+  $y:$i*5;
+  .wid-per#{$y} {
+    width: #{$y}% !important;
+  }
+}
+
+/*
+ * 幅指定CSS(5px単位で作成)
+ */
+@for $i from 0 through 30 {
+  $y:$i*10;
+  .w#{$y} {
+    width: #{$y}px !important;
+  }
+}
+
+.txl {
+  text-align: left;
+}
+
+.txc {
+  text-align: center;
+}
+
+.txr {
+  text-align: right;
+}

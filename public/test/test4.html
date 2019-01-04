@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ja">  
+  <head>
+    <!-- 参考サイト : https://threejs.org/examples/#webgl_buffergeometry_instancing -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yanahiroのポートフォリオ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/dat.gui/dat.gui.js"></script>
+    <script src="js/three.js/three.js"></script>
+    <script src="js/stats.js/stats.js"></script>
+    <style>
+      #notSupported {
+/*         width: 50%;
+        margin: auto;
+        border: 2px red solid;
+        margin-top: 20px;
+        padding: 10px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="bg-container"></div>
+    <div class="logo-name">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 982.43 121.34"><g><path class="svg-na h-fn1" d="M59.64,86V52H18.36V86H2.52V2H18.36v35.4H59.64V2H75.36V86Z" transform="translate(-2.52 -1.48)"/><path class="svg-na i-fn2" d="M100.32,10c0,11.4-17.28,11.4-17.28,0S100.32-1.37,100.32,10Zm-16,16.44v59.4H99V26.47Z" transform="translate(-2.52 -1.48)"/><path class="svg-na r-fn3" d="M121,26.71,122,33.55c4.56-7.32,10.68-8.4,16.68-8.4s12,2.4,15.24,5.64l-6.6,12.72a14.63,14.63,0,0,0-10.56-3.84c-7.68,0-14.76,4.08-14.76,15v31.2H107.4V26.71Z" transform="translate(-2.52 -1.48)"/><path class="svg-na o-fn4" d="M213.47,56.35c0,17-11.64,30.84-30.83,30.84s-30.72-13.8-30.72-30.84,11.76-30.84,30.6-30.84S213.47,39.43,213.47,56.35Zm-46.91,0c0,9,5.4,17.4,16.08,17.4s16.07-8.4,16.07-17.4-6.24-17.52-16.07-17.52C172.08,38.83,166.56,47.47,166.56,56.35Z" transform="translate(-2.52 -1.48)"/><path class="svg-na k-fn5" d="M233,2V50.47L253,26.71h17.52v.84l-24.12,27,27.48,30.24v1.08H256.19L233,59.11V85.87H218.4V2Z" transform="translate(-2.52 -1.48)"/><path class="svg-na i-fn6" d="M296.51,10c0,11.4-17.28,11.4-17.28,0S296.51-1.37,296.51,10Zm-16,16.44v59.4h14.64V26.47Z" transform="translate(-2.52 -1.48)"/><path class="svg-na y-ln1" d="M369.11,36.55,391.43,1.87h19.08v.72L377,51.19V85.87H361.19V51.19L328.91,2.59V1.87h18.84Z" transform="translate(-2.52 -1.48)"/><path class="svg-na a-ln2"  d="M444.11,26.71h14V85.87h-13.8l-.72-8.64c-3.36,7-12.6,10.32-19.2,10.44C406.91,87.79,394,77,394,56.23c0-20.4,13.56-31.08,30.84-31,7.92,0,15.48,3.72,18.84,9.6ZM408.59,56.23c0,11.28,7.8,18,17.52,18,23,0,23-35.88,0-35.88C416.39,38.35,408.59,45,408.59,56.23Z" transform="translate(-2.52 -1.48)"/><path class="svg-na n-ln3"  d="M511.67,85.87v-31c0-9-4.92-15.84-14.28-15.84-9,0-15.12,7.56-15.12,16.56V85.87H467.75V26.59h13.08l1,8c6-5.88,12-8.88,19.44-8.88,13.92,0,25.08,10.44,25.08,29V85.87Z" transform="translate(-2.52 -1.48)"/><path class="svg-na a-ln4" d="M583.43,26.71h14V85.87h-13.8L583,77.23c-3.36,7-12.6,10.32-19.2,10.44-17.52.12-30.48-10.68-30.48-31.44,0-20.4,13.56-31.08,30.84-31,7.92,0,15.48,3.72,18.84,9.6ZM547.91,56.23c0,11.28,7.8,18,17.52,18,23,0,23-35.88,0-35.88C555.71,38.35,547.91,45,547.91,56.23Z" transform="translate(-2.52 -1.48)"/><path class="svg-na g-ln5" d="M653.87,20.71l10.8,8.16-6.6,8.4c4.56,5.16,6.24,11,6.24,17.52,0,7.32-2.76,17.64-12.48,22.08,9.84,4.92,12.24,12,12.24,19.56,0,16.32-12.48,26.4-29.64,26.4s-30-10.44-30-26.4H619c0,7.68,7.08,12.72,15.48,12.72s15-4.56,15-12.72-7.68-11.88-15-11.88c-18.48,0-30-11.28-30-29.76s13.44-30,30-30c4.68,0,9.48.6,13.56,3.36ZM619,54.79c0,10.32,7,16.44,15.48,16.44S649.79,65,649.79,54.79s-7-16.68-15.36-16.68S619,44.47,619,54.79Z" transform="translate(-2.52 -1.48)"/><path class="svg-na i-ln6" d="M689.63,10c0,11.4-17.28,11.4-17.28,0S689.63-1.37,689.63,10Zm-16,16.44v59.4h14.64V26.47Z" transform="translate(-2.52 -1.48)"/><path class="svg-na s-ln7" d="M740.15,42.43c-4.2-4-9-5.28-14.64-5.28-7,0-10.8,2.16-10.8,5.88s3.48,6,11,6.48c11.16.72,25.32,3.24,25.32,19,0,10.44-8.52,19.44-25.44,19.44-9.36,0-18.72-1.56-27.36-10.56l7.2-10.44c4.2,4.68,13.8,8.16,20.4,8.28,5.52.12,10.68-2.76,10.68-7.08,0-4.08-3.36-5.76-11.76-6.24C713.63,61,700.31,57,700.31,43.51c0-13.68,14.16-18.48,25-18.48,9.24,0,16.2,1.8,23,7.8Z" transform="translate(-2.52 -1.48)"/><path class="svg-na a-ln8" d="M805,26.71h14V85.87h-13.8l-.72-8.64c-3.36,7-12.6,10.32-19.2,10.44-17.52.12-30.48-10.68-30.48-31.44,0-20.4,13.56-31.08,30.84-31,7.92,0,15.48,3.72,18.84,9.6ZM769.43,56.23c0,11.28,7.8,18,17.52,18,23,0,23-35.88,0-35.88C777.23,38.35,769.43,45,769.43,56.23Z" transform="translate(-2.52 -1.48)"/><path class="svg-na w-ln9" d="M880.91,26.59l13,44.52,13.56-44.52h16.2L903,86.11H886l-6.12-17.52-5.28-19.8-5.28,19.8-6.12,17.52h-17L825.35,26.59h16.32l13.56,44.52,12.84-44.52Z" transform="translate(-2.52 -1.48)"/><path class="svg-na a-ln10" d="M970.91,26.71h14V85.87h-13.8l-.72-8.64c-3.36,7-12.6,10.32-19.2,10.44-17.52.12-30.48-10.68-30.48-31.44,0-20.4,13.56-31.08,30.84-31,7.92,0,15.48,3.72,18.84,9.6ZM935.39,56.23c0,11.28,7.8,18,17.52,18,23,0,23-35.88,0-35.88C943.19,38.35,935.39,45,935.39,56.23Z" transform="translate(-2.52 -1.48)"/></g></svg>
+    </div>
+    <div class="section">
+      <a class="button" href="./about.html">enter</a>
+    </div>
+
+<!--     <script src="js/libs/dat.gui.min.js"></script>
+    <script src="../build/three.js"></script>
+    <script src="js/libs/stats.min.js"></script>
+    <script src="js/WebGL.js"></script>
+ -->
+    <script id="vertexShader" type="x-shader/x-vertex">
+      precision highp float;
+      uniform float sineTime;
+      uniform mat4 modelViewMatrix;
+      uniform mat4 projectionMatrix;
+      attribute vec3 position;
+      attribute vec3 offset;
+      attribute vec4 color;
+      attribute vec4 orientationStart;
+      attribute vec4 orientationEnd;
+      varying vec3 vPosition;
+      varying vec4 vColor;
+      void main(){
+        vPosition = offset * max( abs( sineTime * 2.0 + 1.0 ), 0.5 ) + position;
+        vec4 orientation = normalize( mix( orientationStart, orientationEnd, sineTime ) );
+        vec3 vcV = cross( orientation.xyz, vPosition );
+        vPosition = vcV * ( 2.0 * orientation.w ) + ( cross( orientation.xyz, vcV ) * 2.0 + vPosition );
+        vColor = color;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( vPosition, 1.0 );
+      }
+    </script>
+
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      precision highp float;
+      uniform float time;
+      varying vec3 vPosition;
+      varying vec4 vColor;
+      void main() {
+        vec4 color = vec4( vColor );
+        color.r += sin( vPosition.x * 10.0 + time ) * 0.5;
+        gl_FragColor = color;
+      }
+    </script>
+
+    <script>
+      var container, stats;
+      var camera, scene, renderer;
+      init();
+      animate();
+      function init() {
+        container = document.getElementById( 'container' );
+        camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 10 );
+        camera.position.z = 2;
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color( 0xffffff );
+        // geometry
+        var vector = new THREE.Vector4();
+        var instances = 5000;
+        var positions = [];
+        var offsets = [];
+        var colors = [];
+        var orientationsStart = [];
+        var orientationsEnd = [];
+        positions.push( 0.025, - 0.025, 0 );
+        positions.push( - 0.025, 0.025, 0 );
+        positions.push( 0, 0, 0.025 );
+        // instanced attributes
+        for ( var i = 0; i < instances; i ++ ) {
+          // offsets
+          offsets.push( Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5 );
+          // colors
+          colors.push( Math.random(), Math.random(), Math.random(), Math.random() );
+          // orientation start
+          vector.set( Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1 );
+          vector.normalize();
+          orientationsStart.push( vector.x, vector.y, vector.z, vector.w );
+          // orientation end
+          vector.set( Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1 );
+          vector.normalize();
+          orientationsEnd.push( vector.x, vector.y, vector.z, vector.w );
+        }
+        var geometry = new THREE.InstancedBufferGeometry();
+        geometry.maxInstancedCount = instances; // set so its initalized for dat.GUI, will be set in first draw otherwise
+        geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
+        geometry.addAttribute( 'offset', new THREE.InstancedBufferAttribute( new Float32Array( offsets ), 3 ) );
+        geometry.addAttribute( 'color', new THREE.InstancedBufferAttribute( new Float32Array( colors ), 4 ) );
+        geometry.addAttribute( 'orientationStart', new THREE.InstancedBufferAttribute( new Float32Array( orientationsStart ), 4 ) );
+        geometry.addAttribute( 'orientationEnd', new THREE.InstancedBufferAttribute( new Float32Array( orientationsEnd ), 4 ) );
+        // material
+        var material = new THREE.RawShaderMaterial( {
+          uniforms: {
+            time: { value: 1.0 },
+            sineTime: { value: 1.0 }
+          },
+          vertexShader: document.getElementById( 'vertexShader' ).textContent,
+          fragmentShader: document.getElementById( 'fragmentShader' ).textContent,
+          side: THREE.DoubleSide,
+          transparent: true
+        } );
+        //
+        var mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );
+        //
+        renderer = new THREE.WebGLRenderer();
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        // renderer.setClearColor( 0xffffff, 1 );
+        container.appendChild( renderer.domElement );
+        if ( renderer.extensions.get( 'ANGLE_instanced_arrays' ) === null ) {
+          document.getElementById( 'notSupported' ).style.display = '';
+          return;
+        }
+        //
+        // var gui = new dat.GUI( { width: 350 } );
+        // gui.add( geometry, 'maxInstancedCount', 0, instances );
+        //
+        // stats = new Stats();
+        // container.appendChild( stats.dom );
+        //
+        window.addEventListener( 'resize', onWindowResize, false );
+      }
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+      }
+      //
+      function animate() {
+        requestAnimationFrame( animate );
+        render();
+        // stats.update();
+      }
+      function render() {
+        var time = performance.now();
+        var object = scene.children[ 0 ];
+        object.rotation.y = time * 0.0001;
+        object.material.uniforms.time.value = time * 0.005; // 0.005
+        object.material.uniforms.sineTime.value = Math.sin( object.material.uniforms.time.value * 0.05 ); // 0.05 
+        renderer.render( scene, camera );
+      }
+    </script>
+  </body>
+</html>

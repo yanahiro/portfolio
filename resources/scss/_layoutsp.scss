@@ -1,0 +1,282 @@
+@media screen and (max-width: 768px) {
+  .spbr {
+    &::before {
+      content: "\a";
+      white-space: pre;
+    }
+  }
+
+  .container {
+    max-width: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+    padding: 0 1.6rem;
+    // margin: 0 auto;
+    // position: relative;
+
+    // &.is-fullwidth {
+    //   max-width: 100%;
+    //   width: 100%;
+    // }
+
+  }
+
+  .logo-name {
+    width: 100%;
+
+    &.load-end {
+      padding-top: 54vh;
+
+      &.load-end-safari {
+        padding-top: 32vh;
+      }
+
+      &.load-end-chrome {
+        padding-top: 56vh;
+      }
+    }
+
+  }
+
+  header {
+    .logo-sp {
+      display: block;
+      position: relative;
+      background-size: 3rem;
+      background-repeat: no-repeat;
+      background-image: url('../images/logo.svg');
+      background-position: center center;
+      width: 1rem;
+      height: 3rem;
+      padding: 1rem 2.4rem;
+      z-index: 102;
+    }
+    .sp-menu-btn {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1.6rem;
+      z-index: 102;
+    }
+  }
+
+  .globalnav {
+    display: none;
+    min-width: 100%;
+    min-height: 100vh;
+    padding-top: 7rem;
+    background-color: #fff;
+    opacity: 0.95;
+
+    &.active {
+      display: block;
+      z-index: 100;
+
+      .gn-content {
+        z-index: 101;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        .gn-list {
+          padding: 0;
+          display: block;
+          .gn-item {
+            display: block;
+            padding: 4rem 0;
+            width: 100%;
+            text-align: center;
+            &:nth-child(1) {
+              display: none;
+            }
+
+            .gn-link {
+
+              &.about {
+                width: 10rem;
+                height: 2.5rem;
+              }
+              &.work {
+                width: 6.4rem;
+                height: 2.5rem;
+              }
+              &.blog {
+                width: 5rem;
+                height: 3.4rem;
+                margin-top: 0;
+              }
+              &.contact {
+                width: 10rem;
+                height: 2.5rem;
+              }
+              &.sns {
+                padding: 0 1.6rem;
+                font-size: 2.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .profile-area {
+    .pf-content {
+      .pf-info {
+        .sns {
+          font-size: 2.4rem;
+          a {
+            padding: 0 1.6rem;
+          }
+        }
+      }
+      .pf-description {
+        line-height: 3;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+
+  .sp-list {
+    .sp-list-item {
+      width: 100%;
+      padding-bottom: 9.5rem;
+    }
+  }
+
+  .skill-area {
+    .skill-item {
+      width: 100%;
+
+      .sk-level-list {
+        margin: 0 3.2rem;
+      }
+
+      &:nth-child(1) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+
+  .future-design-area {
+    margin: 0;
+  }
+
+  /**
+   * work.html
+   */
+  .container {
+    &.is-fullwidth {
+      .work-area {
+        margin: 0;
+      }
+    }
+  }
+
+  .work-area {
+    margin: 0 .8rem;
+    .work-description {
+      p {
+        padding-top: .8rem;
+        padding-left: 1.2rem;
+
+        .comment-title {
+          margin-left: -1.2rem;
+        }
+      }
+    }
+    table {
+      thead {
+        display: none;
+      }
+      tbody {
+        tr {
+          margin-bottom: 2rem;
+        }
+        td {
+          display: block;
+          // padding: 4rem 0 0 2rem;
+          padding: 2rem 0 0 11rem;
+
+          &::before {
+            content: attr(label);
+            float: left;
+            clear: both;
+            font-weight: bold;
+            position: absolute;
+            // margin-top: -2.4rem;
+            // margin-left: -1rem;
+            margin-left: -10rem;
+          }
+
+          &:nth-child(1) {
+            // display: none;
+            background-color: #fff;
+            padding-bottom: 1rem;
+            padding-left: 4rem;
+
+            &:before {
+              margin-left: -3rem;
+            }
+
+          }
+
+          &:nth-child(5),
+          &:nth-child(6) {
+            &::before {
+              padding-top: 1.2rem;
+            }            
+          }
+
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(7) {
+            &::before {
+              padding-top: 1.6rem;
+            }            
+          }
+
+
+          &:nth-child(8),
+          &:nth-child(9),
+          &:nth-child(10),
+          &:nth-child(11) {
+            text-align: left;
+          }
+
+          &:nth-child(11) {
+            padding-bottom: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * wrok_detail.html
+   */
+  .work-detail-area {
+    font-size: 1.2rem;
+    table {
+      padding: 0;
+      th, td {
+        padding: 1rem .5rem 1rem 0;
+      }
+      th {
+        width: 26%;
+      }
+    }
+  }
+}
+
+
+
+
+

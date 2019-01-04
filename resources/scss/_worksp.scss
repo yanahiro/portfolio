@@ -1,0 +1,75 @@
+@media screen and (max-width: 768px) {
+  .role-cell {
+    font-size: inherit;
+
+    span {
+      &.role {
+        &::before {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .os-cell {
+    text-align: left;
+    font-size: inherit;
+
+    span {
+      &.os {
+        &::before {
+          display: inline-block;
+          width: 3rem;
+          height: 3rem;
+          line-height: 3rem;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
+
+  .db-cell {
+    text-align: left;
+    font-size: inherit;
+
+    span {
+      &.db {
+        &::before {
+          display: inline-block;
+          width: 3rem;
+          height: 3rem;
+          line-height: 3rem;
+          padding-right: 1rem;
+        }
+      }
+    }  
+  }
+
+  .pg-cell {
+    text-align: left;
+    font-size: inherit;
+
+    .pg-item {
+      display: block;
+      text-align: left;
+      margin: .4rem 0;
+    }
+
+    span {
+      &.pg {
+        &::before {
+          display: inline-block;
+          width: 3rem;
+          height: 3rem;
+          line-height: 3rem;
+          padding-right: 1rem;
+        }
+      }
+    }  
+  }
+
+
+}
+
+
+
+

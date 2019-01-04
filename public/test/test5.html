@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- 参考URL : https://ics.media/entry/18812 -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yanahiroのポートフォリオ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/noisejs/perlin.js"></script>
+    <script src="js/three.js/three.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      canvas {
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+<!--     <script>
+      let stageW = 0; // 画面の幅
+      let stageH = 0; // 画面の高さ
+      // canvas要素の参照を取得
+      const canvas = document.querySelector('canvas');
+      // 2Dの描画命令群を取得
+      const context = canvas.getContext('2d');
+      tick();
+      resize();
+      window.addEventListener('resize', resize);
+      /** アニメーションフレームのタイミングです。 */
+      function tick() {
+        requestAnimationFrame(tick);
+        draw();
+      }
+      /** 描画します。 */
+      function draw() {
+        // 画面をリセット
+        context.clearRect(0, 0, stageW, stageH);
+        context.lineWidth = 10; // 線の太さ
+        context.beginPath(); // 線の開始
+        context.strokeStyle = 'white'; // 線の色
+        context.moveTo(0, stageH / 2); // 開始点
+        context.lineTo(stageW, stageH / 2); // 終了点
+        context.stroke(); // 線を描く
+      }
+      /** リサイズ時のイベントです。 */
+      function resize() {
+        stageW = innerWidth * devicePixelRatio;
+        stageH = innerHeight * devicePixelRatio;
+        canvas.width = stageW;
+        canvas.height = stageH;
+      }
+    </script> -->
+    <script>
+      let stageW = 0; // 画面の幅
+      let stageH = 0; // 画面の高さ
+      // canvas要素の参照を取得
+      const canvas = document.querySelector('canvas');
+      // 2Dの描画命令群を取得
+      const context = canvas.getContext('2d');
+      noise.seed(Math.random());
+      resize();
+      tick();
+      window.addEventListener('resize', resize);
+      /** エンターフレームのタイミングです。 */
+      function tick() {
+        requestAnimationFrame(tick);
+        const time = Date.now() / 5000;
+        draw(time);
+      }
+      /** 描画します。 */
+      function draw(time) {
+        // 画面をリセット
+        context.clearRect(0, 0, stageW, stageH);
+        context.lineWidth = 1;
+        const amplitude = stageH / 4; // 振幅（縦幅)の大きさ
+        const lineNum = 200; // ラインの数
+        const segmentNum = 100; // 分割数
+        [...new Array(lineNum).keys()].forEach(j => {
+          const coefficient = 50 + j;
+          context.beginPath();
+          // context.strokeStyle = `white`;
+          // context.strokeStyle = 'rgb(155, 187, 89)';
+          context.strokeStyle = '#3DFF3D';
+          // const h = Math.round(j / lineNum * 220); // 色相
+          // const s = 100; // 彩度
+          // const l = Math.round(j / lineNum * 100); // 明度
+          // // 色を指定
+          // context.strokeStyle = `hsl(${h}, ${s}%, ${l}%)`;
+
+
+          [...new Array(segmentNum).keys()].forEach(i => {
+            const x = i / (segmentNum - 1) * stageW;
+            const px = i / coefficient;
+            const py = (j / 50 + time);
+            const y = amplitude * noise.perlin2(px, py) + stageH / 2;
+            if (i === 0) {
+              context.moveTo(x, y);
+            } else {
+              context.lineTo(x, y);
+            }
+          });
+          context.stroke();
+        });
+      }
+      /** リサイズ時のイベントです。 */
+      function resize() {
+        stageW = innerWidth * devicePixelRatio;
+        stageH = innerHeight * devicePixelRatio;
+        canvas.width = stageW;
+        canvas.height = stageH;
+      }
+    </script>
+  </body>
+</html>
